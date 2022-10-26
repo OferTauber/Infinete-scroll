@@ -1,25 +1,29 @@
-import Card from '@mui/material/Card';
 import Character from '../utiles/CarecterDTO';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
+import { CardMedia, CardContent, Typography, Card } from '@mui/material';
 import CardDataItem from './cardDataItem';
 import Grid from '@mui/material/Unstable_Grid2';
+import { Box } from '@mui/system';
 
 export default function CharacterCard({ character }: { character: Character }) {
   return (
-    <Grid xs={4}>
-      <Card sx={{ maxWidth: 300 }}>
-        <Typography
-          gutterBottom
-          variant="h5"
-          component="div"
-          sx={{ display: 'block', margin: 'auto', width: 'fit-content' }}
-        >
-          {character.name}
-        </Typography>
+    <Grid xs={12} md={6} lg={4} xl={3}>
+      <Card sx={{ width: '100%' }}>
+        <Box sx={{ display: 'flex', alignItems: 'canter', height: '4rem' }}>
+          <Typography
+            align="center"
+            gutterBottom
+            variant="h6"
+            component="div"
+            alignContent="a"
+            sx={{
+              display: 'block',
+              margin: 'auto',
+              width: 'fit-content',
+            }}
+          >
+            {character.name}
+          </Typography>
+        </Box>
         <CardMedia
           sx={{ maxWidth: 200, margin: 'auto' }}
           component="img"
@@ -27,16 +31,14 @@ export default function CharacterCard({ character }: { character: Character }) {
           alt={character.name}
         />
 
-        <CardContent>
-          <Stack
-            direction={'row'}
-            divider={<Divider orientation="vertical" flexItem />}
-            spacing={2}
-          >
-            <CardDataItem fildeName="Status" value={character.status} />
-            <CardDataItem fildeName="Gender" value={character.gender} />
-            <CardDataItem fildeName="Species" value={character.species} />
-          </Stack>
+        <CardContent
+          sx={{
+            height: '150px',
+          }}
+        >
+          <CardDataItem fildeName="Status" value={character.status} />
+          <CardDataItem fildeName="Gender" value={character.gender} />
+          <CardDataItem fildeName="Species" value={character.species} />
         </CardContent>
       </Card>
     </Grid>

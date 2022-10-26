@@ -42,19 +42,32 @@ const CardDataItem = ({
   value: string;
 }) => {
   return (
-    <Box>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        marginBottom: '2px',
+      }}
+    >
       <Typography
-        variant="body2"
-        color="text.secondary"
+        variant="body1"
         sx={{ display: 'block', margin: 'auto', width: 'fit-content' }}
       >
         {fildeName}
       </Typography>
-      <Chip
-        label={value}
-        color={findeColor(fildeName.toLowerCase(), value)}
-        sx={{ margin: 'auto', width: 'fit-content' }}
-      />
+      <Box
+        sx={{
+          flexShrink: '0',
+          flexBasis: '120px',
+          display: 'flex',
+          justifyContent: 'space-around',
+        }}
+      >
+        <Chip
+          label={value === 'Mythological Creature' ? 'Mythological' : value}
+          color={findeColor(fildeName.toLowerCase(), value)}
+        />
+      </Box>
     </Box>
   );
 };

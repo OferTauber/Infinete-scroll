@@ -1,25 +1,11 @@
 import CharacterCard from './Card';
 import Character from '../utiles/CarecterDTO';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
+import { Container, CssBaseline } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { useInfiniteQuery } from 'react-query';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
-import LinearProgress from '@mui/material/LinearProgress';
-import Card from '@mui/material/Card';
-import Box from '@mui/material/Box';
-
-const Loader = () => {
-  return (
-    <Box sx={{ width: '100%' }}>
-      <br />
-      <LinearProgress />
-      <br />
-    </Box>
-  );
-};
+import Loader from './Loader';
 
 const List = () => {
   const { ref, inView } = useInView();
@@ -31,16 +17,13 @@ const List = () => {
     return await res.json();
   };
 
-  const { data, error, fetchNextPage, isFetching, status } = useInfiniteQuery(
-    ['RickAndMorty'],
-    fetchCharacters,
-    {
+  const { data, error, fetchNextPage, isFetching, status, hasNextPage } =
+    useInfiniteQuery(['RickAndMorty'], fetchCharacters, {
       getNextPageParam: (lastPage, pages) => {
         void pages;
         return lastPage.info.next;
       },
-    }
-  );
+    });
 
   const mapCards = () => {
     if (!data) return [];
@@ -53,14 +36,14 @@ const List = () => {
         ))
       );
       const refDiv = <div ref={ref} key={'dummy-ref' + cards.length}></div>;
-      cards.splice(cards.length - 3, 0, refDiv);
+      cards.splice(cards.length - 5, 0, refDiv);
       return cards;
     }, []);
   };
 
   useEffect(() => {
-    if (inView) fetchNextPage();
-  }, [inView, fetchNextPage]);
+    if (inView && hasNextPage) fetchNextPage();
+  }, [inView, fetchNextPage, hasNextPage]);
 
   if (status === 'loading') return <div>Loading...</div>;
 
@@ -73,11 +56,11 @@ const List = () => {
     <>
       <br />
       <CssBaseline />
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Grid container spacing={4}>
           {mapCards()}
         </Grid>
-        {isFetching && <Loader />}
+        <Loader isLoagind={isFetching} />
       </Container>
     </>
   );
