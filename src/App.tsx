@@ -1,11 +1,17 @@
 import List from './components/List';
 import Nav from './components/Navbar';
+import Hero from './components/Hero';
 
 function App() {
   return (
     <>
-      <Nav />
-      <List />;
+      <header>
+        <Nav />
+      </header>
+      <main>
+        <Hero />
+        <List />;
+      </main>
     </>
   );
 }

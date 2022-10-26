@@ -57,7 +57,7 @@ const List = () => {
       <br />
       <CssBaseline />
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
+        <Grid container spacing={4} alignItems="center">
           {mapCards()}
         </Grid>
         <Loader isLoagind={isFetching} />

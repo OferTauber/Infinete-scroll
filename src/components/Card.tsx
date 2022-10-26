@@ -6,8 +6,8 @@ import { Box } from '@mui/system';
 
 export default function CharacterCard({ character }: { character: Character }) {
   return (
-    <Grid xs={12} md={6} lg={4} xl={3}>
-      <Card sx={{ width: '100%' }}>
+    <Grid xs={6} md={4} lg={3}>
+      <Card sx={{ width: '100%', maxWidth: '270px', margin: 'auto' }}>
         <Box sx={{ display: 'flex', alignItems: 'canter', height: '4rem' }}>
           <Typography
             align="center"
