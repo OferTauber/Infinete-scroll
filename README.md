@@ -12,10 +12,7 @@ The app if fetching data from [Rick and Morty API](https://rickandmortyapi.com).
 
 # Technologies
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/480px-Typescript.svg.png" aligen="left" width="50" hover="1">
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" aligen="left" width="50">
-<img src="https://react-query-v3.tanstack.com/_next/static/images/emblem-light-628080660fddb35787ff6c77e97ca43e.svg" aligen="left" width="50">
-<img src="https://mui.com/static/logo.png" aligen="center" width="50">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/480px-Typescript.svg.png" aligen="left" width="50" hover="1"> <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" aligen="left" width="50"> <img src="https://react-query-v3.tanstack.com/_next/static/images/emblem-light-628080660fddb35787ff6c77e97ca43e.svg" aligen="left" width="50"> <img src="https://mui.com/static/logo.png" aligen="center" width="50">
 
 This is a `React`-based application (written in `TypeScript`), where all components are based on `MaterialUI`.
 
