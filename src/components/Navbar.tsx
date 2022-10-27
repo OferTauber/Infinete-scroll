@@ -22,9 +22,7 @@ export default function Nav() {
     <AppBar position="sticky" sx={{ backgroundColor: '#333' }}>
       <Toolbar>
         <Avatar
-          src={
-            'https://www.idrlabs.com/misc_pictures/rick-and-morty-pathology-button.png'
-          }
+          src={'https://rickandmortyapi.com/api/character/avatar/19.jpeg'}
         ></Avatar>
         <Typography
           variant="h6"
