@@ -1,6 +1,7 @@
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import { Box } from '@mui/material';
+// import FaceIcon from '@mui/icons-material/Face';
 
 const STATUS = 'status';
 const SPECIES = 'species';
@@ -66,6 +67,7 @@ const CardDataItem = ({
         <Chip
           label={value === 'Mythological Creature' ? 'Mythological' : value}
           color={findeColor(fildeName.toLowerCase(), value)}
+          // icon={<FaceIcon />}
         />
       </Box>
     </Box>
